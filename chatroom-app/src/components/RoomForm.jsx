@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { FormContainer, Form, Label, Input, Button } from './FormStyles';
+import { FormContainer, Form, Label, Input, Button, SignOutButton} from './FormStyles';
 
-function RoomForm({ setRoom }) {
+function RoomForm({ setRoom, setUsername }) {
   const [tempRoom, setTempRoom] = useState('');
 
   function handleSubmit(event) {
@@ -9,14 +9,19 @@ function RoomForm({ setRoom }) {
     setRoom(tempRoom);
   }
 
+  function handleSignOut() {
+    setUsername(''); // Clear the username
+  }
+
   return (
     <FormContainer>
-      <h2>Choose a Room</h2>
+      <h2>Create a Room</h2>
       <Form onSubmit={handleSubmit}>
         <Label>Room:</Label>
         <Input type="text" value={tempRoom} onChange={e => setTempRoom(e.target.value)} />
         <Button type="submit">Enter Room</Button>
       </Form>
+      <SignOutButton type="button" onClick={handleSignOut}>Sign Out</SignOutButton> 
     </FormContainer>
   );
 }
