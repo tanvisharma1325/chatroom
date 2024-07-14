@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { db } from './firebase';
-import { ChatContainer, Form, Message, Input, Button, RoomDetails, LeaveButton, SignOutButton, MessagesContainer } from './ChatRoomStyles';
+import { ChatContainer, Form, Message, Input, Button, RoomDetails, LeaveButton, SignOutButton, MessagesContainer } from '../styles/ChatRoomStyles';
 import { ref, onValue, off, push, set } from 'firebase/database';  
 
 function ChatRoom({ username, room, setRoom, setUsername }) {

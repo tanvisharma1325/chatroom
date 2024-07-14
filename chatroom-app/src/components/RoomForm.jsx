@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FormContainer, Form, Label, Input, Button, SignOutButton} from './FormStyles';
+import { FormContainer, Form, Label, Input, Button, SignOutButton} from '../styles/FormStyles';
 
 function RoomForm({ setRoom, setUsername }) {
   const [tempRoom, setTempRoom] = useState('');

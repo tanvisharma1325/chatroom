@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FormContainer, Form, Label, Input, Button } from './FormStyles';
+import { FormContainer, Form, Label, Input, Button } from '../styles/FormStyles';
 
 function LoginForm({ setUsername }) {
   const [tempUsername, setTempUsername] = useState('');
