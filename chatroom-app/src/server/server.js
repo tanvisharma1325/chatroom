@@ -29,6 +29,11 @@ io.on('connection', (socket) => {
     io.to(room).emit('message', { username, text });
   });
 
+  socket.on('leaveRoom', ({ username, room }) => {
+    socket.leave(room);
+    console.log(`User ${username} left room ${room}`);
+  });
+
   socket.on('disconnect', () => {
     console.log('Client disconnected');
   });

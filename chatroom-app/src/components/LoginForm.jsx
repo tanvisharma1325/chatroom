@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FormContainer, Form, Label, Input, Button } from './FormStyles';
 
 function LoginForm({ setUsername }) {
   const [tempUsername, setTempUsername] = useState('');
+  const [error, setError] = useState('');
 
   function handleSubmit(event) {
     event.preventDefault();
-    setUsername(tempUsername);
+
+    if (tempUsername.trim() === '') {
+      setError('Username cannot be empty');
+    } else {
+      setUsername(tempUsername);
+      setError('');
+    }
   }
 
   return (
@@ -15,6 +22,7 @@ function LoginForm({ setUsername }) {
       <Form onSubmit={handleSubmit}>
         <Label>Username:</Label>
         <Input type="text" value={tempUsername} onChange={e => setTempUsername(e.target.value)} />
+        {error && <p>{error}</p>}
         <Button type="submit">Login</Button>
       </Form>
     </FormContainer>
